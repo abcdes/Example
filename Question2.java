@@ -10,11 +10,11 @@ import java.util.Scanner;
 
 public class Question2 {
 
-    public String hexconvert(Color color) {
+    public String hexconvert(int red, int green, int blue) {
         Formatter f = new Formatter(new StringBuffer("#"));
-        f.format("%02X", color.getRed());
-        f.format("%02X", color.getGreen());
-        f.format("%02X", color.getBlue());
+        f.format("%02X", red);
+        f.format("%02X", green);
+        f.format("%02X", blue);
         f.toString(); //#0000FF
 
         return f.toString();
@@ -23,30 +23,18 @@ public class Question2 {
 
     public static void main(String[] args) {
         int val = 0;
+        int val1 = 0;
+        int val2 = 0;
         Scanner in = new Scanner(System.in);
         Color color = null;
-        System.out.println("Select Color Number");
-        System.out.println("1:Red");
-        System.out.println("2:Green");
-        System.out.println("3:Blue");
-        System.out.println("Enter Color Number:");
+        System.out.println("Enter Red Value:");
         val = in.nextInt();
-        switch (val) {
-            case 1:
-                color = Color.RED;
-                break;
-            case 2:
-                color = Color.GREEN;
-                break;
-            case 3:
-                color = Color.BLUE;
-                break;
-            default:
-                System.out.println("Please Enter Correct Number");
-                break;
-        }
+        System.out.println("Enter Green Value:");
+        val1 = in.nextInt();
+        System.out.println("Enter Blue Value:");
+        val2 = in.nextInt();
         Question2 obj = new Question2();
-        String colorVal = obj.hexconvert(color);
+        String colorVal = obj.hexconvert(val, val1, val2);
         System.out.println("Color COde is: " + colorVal);
     }
 }
